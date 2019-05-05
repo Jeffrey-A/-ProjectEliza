@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class ProjectEliza {
 
-	static PromptBank wordBank = new PromptBank(); 
-	
 	public static void main(String[] args) {
 		Scanner in= new Scanner(System.in);
 		do {
@@ -12,7 +10,7 @@ public class ProjectEliza {
 		System.out.println("Goodbye, until next time");
 	}
 	
-	//brain of the program uppper level method
+	//brain of the program 
 	public static void app(Scanner in) {
 		
 		String user;
@@ -20,26 +18,33 @@ public class ProjectEliza {
 		String word1;
 		String word2;
 		
+		PromptBank wordBank = new PromptBank(); 
 		wordBank.setUp();//populating arrays
+		
+		welcome();
 		wordBank.greet();
+		
 		user = in.nextLine();
 		user = getWord(user,'f');
-		System.out.println("Hello, "+ user+" Tell me what is on your mind today in 1 sentence.");
+		System.out.println("Hello "+ user+", Tell me what is on your mind today in 1 sentence.");
 		
 		while(true) {
 			
 			boolean dramatic =false;
 			user = in.nextLine();
+			
 			if(user.equals("EXIT")) {
 				break;
 			}
 			
 			if(user.charAt(user.length()-1)=='?') {
 				temp = wordBank.getRandomQuestionTrunk();//get a random question from the words bank
+			
 			}else if(user.charAt(user.length()-1)=='!') {
 				//WOW! Dramatic! 
 				dramatic = true;
 				temp = wordBank.getRandomStatementTrunk();
+			
 			}else {
 				temp = wordBank.getRandomStatementTrunk();//get a random statement from the words bank
 			}
@@ -50,6 +55,14 @@ public class ProjectEliza {
 			
 			wordBank.generatePhrase(temp, word1, word2,dramatic);
 		}
+	}
+	
+	public static void welcome() {
+		System.out.println("");
+		System.out.println("*****************************************************************************");
+		System.out.println("                         Welcome to Eliza Therapy Center                     ");
+		System.out.println("*****************************************************************************");
+		System.out.println("");
 	}
 	
 	//returns the first or last word without punctuation 
@@ -91,9 +104,5 @@ public class ProjectEliza {
 		}
 		return false;
 	}
-	
-	
-	
-	
-
+		
 }

@@ -6,8 +6,9 @@ public class PromptBank {
 	String [] statements;
 	
 	public PromptBank(){
-		questions = new String[3]; //initialize your array to the correct length to match your number of questions you populate it with
-		statements =new String[3]; //initialize your array to the correct length to match your number of questions you populate it with
+		//initializes my variables
+		questions = new String[5]; 
+		statements =new String[5]; 
 		
 	}
 	
@@ -25,40 +26,36 @@ public class PromptBank {
 	}
 	
 	public void populateStatementsArray(){
-		statements[0] = "Tell me more about BLANK1 and BLANK2";
+		statements[0] = "Tell me more about BLANK1 and BLANK2.";
 		statements[1] = "BLANK1 seems important to you, so does BLANK2. Please tell me more.";
 		statements[2] = "BLANK1 and BLANK2 seem to be on your mind. Let's talk about it.";
-		/*complete this method with your other statements using BLANK1 for word1
-		 * and BLANK2 for word2 place holder 
-		 */
+		statements[3] = "Please, give me more details about BLANK1 and BLANK2.";
+		statements[4] = "I'm curious about BLANK1 and BLANK2. Tell me your thoughts about them.";
+		
+		
 	}
 	public void populateQuestionsArray(){
 		questions[0] = "Is there anything else about BLANK1 and BLANK2?";
 		questions[1] = "Does BLANK1 bother you? How about BLANK2?";
 		questions[2] = "Are BLANK1 and BLANK2 things you think about often?";
-		
-		/*complete this method with your other questions using BLANK1 for word1
-		 * and BLANK2 for word2 place holder 
-		 */
-		
+		questions[3] = "How often do you think about BLANK1 and BLANK2?";
+		questions[4] = "Is BLANK1 important to you? What about BLANK2?";	
 	}
 	
+	//produces a random number
 	public int getRandomIndex() {
 		Random number = new Random();
-		return number.nextInt(3);
+		return number.nextInt(questions.length);
 	}
 	  
+	//gets a random statement
 	public String getRandomStatementTrunk(){
-		//fill in the method so it randomly selects the statement template
 		int index = this.getRandomIndex();
 		return this.statements[index];
 	}
 	
 	public String getRandomQuestionTrunk(){
-		//fill in the method so it randomly selects the question template
-		//from the questions array ... hint use Math.random() to get the random index
-		//so you can replace BLANK1 and BLANK2 with the appropriate words
-
+		//gets a random question
 		int index = this.getRandomIndex();
 		return this.questions[index];
 	}
@@ -74,7 +71,5 @@ public class PromptBank {
 		}
 		
 	}
-	
-	
 	
 }
