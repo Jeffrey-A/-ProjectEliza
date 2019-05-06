@@ -22,7 +22,7 @@ public class ProjectEliza {
 		wordBank.setUp();//populating arrays
 		
 		welcome();
-		wordBank.greet();
+		wordBank.greet(); //greeting and prompting the user to enter name
 		
 		user = in.nextLine();
 		user = getWord(user,'f');
@@ -49,11 +49,12 @@ public class ProjectEliza {
 				temp = wordBank.getRandomStatementTrunk();//get a random statement from the words bank
 			}
 			
-			
+			//Getting first and last words 
 			word1 = getWord(user,'f');
 			word2 = getWord(user,'l');
 			
-			wordBank.generatePhrase(temp, word1, word2,dramatic);
+			//Generating and printing the statement
+			wordBank.generatePhrase(temp, word1, word2,dramatic); 
 		}
 	}
 	
